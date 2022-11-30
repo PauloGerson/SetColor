@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences preferences;
 
     View view1;
+    int colorDefault;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +34,29 @@ public class MainActivity extends AppCompatActivity {
 
         view1 = findViewById(R.id.view);
 
+        preferences = getSharedPreferences("arquivo", Context.MODE_PRIVATE);
+        colorDefault = preferences.getInt("color", 0);
+        view1.setBackgroundResource(colorDefault);
+
 
 
         red.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceAsColor")
+
+
             @Override
             public void onClick(View view) {
-                view1 = findViewById(R.id.view);
-                view1.setBackgroundResource(R.color.red);
+
+
+                int color1 = R.color.red;
+
+                preferences = getSharedPreferences("arquivo", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("color", color1);
+                editor.commit();
+
+                colorDefault = preferences.getInt("color", 0);
+                view1.setBackgroundResource(color1);
+
             }
         });
 
@@ -48,8 +65,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                view1 = findViewById(R.id.view);
-                view1.setBackgroundResource(R.color.yellow);
+                int color1 = R.color.yellow;
+
+                preferences = getSharedPreferences("arquivo", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("color", color1);
+                editor.commit();
+
+                colorDefault = preferences.getInt("color", 0);
+                view1.setBackgroundResource(color1);
             }
         });
 
@@ -57,8 +81,15 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
-                    view1 = findViewById(R.id.view);
-                    view1.setBackgroundResource(R.color.blue);
+                int color1 = R.color.blue;
+
+                preferences = getSharedPreferences("arquivo", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("color", color1);
+                editor.commit();
+
+                colorDefault = preferences.getInt("color", 0);
+                view1.setBackgroundResource(color1);
             }
         });
 
