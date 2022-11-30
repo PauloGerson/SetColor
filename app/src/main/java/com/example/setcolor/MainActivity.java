@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
 
-    View view;
+    View view1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
         yellow = findViewById(R.id.yellow);
         blue = findViewById(R.id.blue);
 
+        view1 = findViewById(R.id.view);
 
-    onRadioButtonClicked(view);
 
 
-        /*red.setOnClickListener(new View.OnClickListener() {
+        red.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
@@ -60,31 +60,10 @@ public class MainActivity extends AppCompatActivity {
                     view1 = findViewById(R.id.view);
                     view1.setBackgroundResource(R.color.blue);
             }
-        });*/
-
-
+        });
 
 
     }
 
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        view = findViewById(R.id.view);
-        boolean checked = ((RadioButton) view).isChecked();
 
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.red:
-                if (checked)
-                    // Pirates are the best
-                //view.setBackgroundResource(R.color.red);
-
-                    break;
-            case R.id.blue:
-                if (checked)
-                    // Ninjas rule
-                    //view.setBackgroundResource(R.color.blue);
-                    break;
-        }
-    }
 }
